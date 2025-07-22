@@ -42,7 +42,7 @@ public class Pharmacy {
             System.out.println("Cannot add more medicines, array is full.");
             return false;
         }
-        // إزاحة العناصر بعد الفهرس خطوة لليمين
+        
         for (int i = medicineCount; i > index; i--) {
             medicineNames[i] = medicineNames[i - 1];
             medicinePrices[i] = medicinePrices[i - 1];
@@ -78,16 +78,16 @@ public class Pharmacy {
     public static void deleteMedicine(String id) {
         for (int i = 0; i < medicineCount; i++) {
             if (medicineIds[i].equalsIgnoreCase(id)) {
-                // احفظ البيانات
+                
                 deletedMedicinesIds[deletedCount] = id;
                 deletedMedicinesNames[deletedCount] = medicineNames[i];
                 deletedMedicinesPrices[deletedCount] = medicinePrices[i];
                 deletedMedicinesQuantities[deletedCount] = medicineQuantities[i];
                 deletedMedicinesShelves[deletedCount] = medicineShelves[i];
-                deletedMedicinesIndexes[deletedCount] = i; // احفظ الفهرس الأصلي
+                deletedMedicinesIndexes[deletedCount] = i; 
                 deletedCount++;
 
-                // حرّك العناصر التي بعده خطوة لليسار
+                
                 for (int j = i; j < medicineCount - 1; j++) {
                     medicineNames[j] = medicineNames[j + 1];
                     medicinePrices[j] = medicinePrices[j + 1];
@@ -108,7 +108,7 @@ public class Pharmacy {
             if (deletedMedicinesIds[i].equalsIgnoreCase(id)) {
                 int index = deletedMedicinesIndexes[i];
                 if (index > medicineCount) {
-                    index = medicineCount; // لو مكانه الأصلي أكبر من الحجم الحالي، ضعه في النهاية
+                    index = medicineCount; 
                 }
 
                 if (addMedicineAt(deletedMedicinesIds[i], deletedMedicinesNames[i],
